@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulrahman Portfolio</title>
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main Style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Links */
+        a {
+            color: #5ff0e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        header {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.76), rgba(10, 10, 10, 0.92)),
+                radial-gradient(circle at 82% 25%, rgba(255, 0, 90, 0.35), transparent 32%),
+                linear-gradient(135deg, #111111, #1c1c1c);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding: 80px 12%;
+        }
+
+        header h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-size: 28px;
+            color: #5ff0e8;
+            margin-bottom: 18px;
+        }
+
+        header p {
+            max-width: 650px;
+            font-size: 18px;
+            color: #dddddd;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .main-btn,
+        button {
+            display: inline-block;
+            background-color: #5ff0e8;
+            color: #111111;
+            padding: 13px 32px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .main-btn:hover,
+        button:hover {
+            background-color: #42cfc8;
+            color: #000000;
+            text-decoration: none;
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 10%;
+            text-align: center;
+            background-color: #151515;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #101010;
+        }
+
+        section h2 {
+            font-size: 38px;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 3px;
+            background-color: #5ff0e8;
+            margin: 12px auto 0;
+            border-radius: 5px;
+        }
+
+        section h3 {
+            color: #5ff0e8;
+            font-size: 23px;
+            margin-bottom: 14px;
+        }
+
+        section p {
+            max-width: 850px;
+            margin: 12px auto;
+            color: #dddddd;
+            font-size: 17px;
+        }
+
+        /* Cards */
+        .card,
+        section > div {
+            background-color: #1d1d1d;
+            border: 1px solid rgba(95, 240, 232, 0.25);
+            padding: 28px;
+            margin: 25px auto;
+            max-width: 850px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            transition: 0.3s ease;
+        }
+
+        .card:hover,
+        section > div:hover {
+            transform: translateY(-5px);
+            border-color: #5ff0e8;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: #1d1d1d;
+            border: 1px solid rgba(95, 240, 232, 0.2);
+            margin: 12px auto;
+            padding: 14px 20px;
+            border-radius: 12px;
+            color: #eeeeee;
+            transition: 0.3s ease;
+        }
+
+        li:hover {
+            background-color: #242424;
+            border-color: #5ff0e8;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info p {
+            max-width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .contact-info strong {
+            color: #5ff0e8;
+        }
+
+        /* Form */
+        form {
+            max-width: 850px;
+            margin: 35px auto 0;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(95, 240, 232, 0.2);
+            border-radius: 10px;
+            background-color: #1d1d1d;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #5ff0e8;
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        #responseMessage {
+            max-width: 850px;
+            margin: 18px auto 0;
+            padding: 15px;
+            border-radius: 10px;
+            color: #5ff0e8;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #080808;
+            color: #cccccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 7%;
+                text-align: center;
+                align-items: center;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            header h2 {
+                font-size: 22px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            section h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Abdulrahman AL-sufyani</h1>
+        <h2>Computer Science Student</h2>
+
+        <p>
+            I am a Computer Science student interested in programming, technology,
+            and UI design. I enjoy learning new skills and building creative projects
+            that solve real problems.
+        </p>
+
+        <a class="main-btn" href="https://github.com/Abdulrahman-1234" target="_blank">
+            View My Projects
+        </a>
+    </header>
+
+    <!-- About Me Section -->
+    <section>
+        <h2>About Me</h2>
+
+        <p>
+            I am a Computer Science student at the University of Applied Sciences,
+            Bahrain. I am currently studying from 2022 to 2026.
+        </p>
+
+        <p>
+            I am also an intern at Jeelna Company, gaining hands-on experience in
+            programming, web development, technical support, software testing,
+            and software analysis.
+        </p>
+    </section>
+
+    <!-- Education Section -->
+    <section>
+        <h2>Education Qualification</h2>
+
+        <div class="card">
+            <h3>B.Sc. in Computer Science</h3>
+            <p><strong>University:</strong> University of Applied Sciences, Bahrain</p>
+            <p><strong>Study Period:</strong> 2022 - 2026</p>
+            <p><strong>Status:</strong> Undergraduate Student</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section>
+        <h2>Experience</h2>
+
+        <div class="card">
+            <h3>Computer Science Intern</h3>
+            <p><strong>Company:</strong> Jeelna Company</p>
+            <p><strong>Position:</strong> Intern</p>
+            <p>
+                Worked on programming tasks, basic web development, technical support,
+                software testing, and software analysis. I also helped improve website
+                functionality and supported the team in solving technical issues.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Marketing Assistant</h3>
+            <p><strong>Company:</strong> Real Estate Marketing Company - Bahrain</p>
+            <p><strong>Period:</strong> 6 Months</p>
+            <p>
+                Managed real estate listings on digital platforms and the company website.
+                Prepared marketing content and property presentations, assisted in social
+                media campaigns, communicated with clients, and supported the sales team.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+        <h2>My Skills</h2>
+
+        <ul>
+            <li>HTML - Basic</li>
+            <li>CSS - Basic</li>
+            <li>JavaScript - Beginner</li>
+            <li>C++ - Basics</li>
+            <li>Java - Basics</li>
+            <li>SQL - Basic</li>
+            <li>Git & GitHub - Basic</li>
+            <li>Microsoft Office - Good</li>
+            <li>Problem Solving - Good</li>
+            <li>Basic Networking - Basic</li>
+            <li>Figma - Basic</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section>
+        <h2>Projects</h2>
+
+        <div class="card">
+            <h3>Travel Assistant App</h3>
+            <p>
+                A mobile application that helps users plan and manage their trips by
+                providing destination information, recommendations, booking services,
+                and travel tips.
+            </p>
+            <p><strong>Technologies:</strong> Flutter, Firebase, REST API, Google Maps API</p>
+        </div>
+
+        <div class="card">
+            <h3>Website Projects</h3>
+            <p>
+                Developed responsive websites for different purposes, including business
+                websites and personal portfolio websites.
+            </p>
+            <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Bootstrap, PHP, MySQL</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+        <h2>My Services</h2>
+
+        <div class="card">
+            <h3>Basic Web Design</h3>
+            <p>
+                I can create simple and clean website layouts using HTML and CSS.
+                I focus on organizing the content in a clear way, choosing suitable
+                spacing, and making pages easy to read.
+            </p>
+            <button type="button">Learn More</button>
+        </div>
+
+        <div class="card">
+            <h3>Basic Web Development</h3>
+            <p>
+                I have basic knowledge of web development, including HTML, CSS,
+                and simple JavaScript. I can build small web pages and I am still
+                improving my coding skills step by step.
+            </p>
+            <button type="button">View Projects</button>
+        </div>
+
+        <div class="card">
+            <h3>UI Design</h3>
+            <p>
+                I can design simple user interfaces using Figma. I enjoy creating
+                clean layouts, arranging elements neatly, and learning how to improve
+                the user experience.
+            </p>
+            <button type="button">See Design</button>
+        </div>
+    </section>
+
+    <!-- Training Tasks Section -->
+    <section>
+        <h2>Training Tasks</h2>
+
+        <div class="card">
+            <h3>Design a Web Page using HTML & CSS</h3>
+            <p>
+                Created a web page that includes a title, paragraph, image,
+                and button using HTML and CSS.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Add a Second Page with Contact Form</h3>
+            <p>
+                Created a second page containing a contact form with fields for name,
+                email, and message, and linked the pages together.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Design a Mobile App Login Screen using Figma</h3>
+            <p>
+                Used Figma to design a simple and clean mobile app login screen.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <h2>Contact Me</h2>
+
+        <p>
+            I am always open to learning, collaborating, and improving my skills.
+            Feel free to contact me for internship opportunities, academic projects,
+            or simple web and UI design work.
+        </p>
+
+        <div class="contact-info">
+            <p>
+                <strong>Phone:</strong>
+                <a href="tel:00966550364391">00966550364391</a>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <a href="mailto:ar5535437@gmail.com">ar5535437@gmail.com</a>
+            </p>
+
+            <p>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%B3-59bb46413/" target="_blank">
+                    My LinkedIn Profile
+                </a>
+            </p>
+
+            <p>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/Abdulrahman-1234" target="_blank">
+                    My GitHub Profile
+                </a>
+            </p>
+        </div>
+
+        <form id="contactForm" action="/contact" method="POST">
+    <input type="text" name="firstName" placeholder="First Name" required>
+    <input type="text" name="lastName" placeholder="Last Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+</form>
+
+        <div id="responseMessage"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>©️ 2026 Abdulrahman AL-sufyani. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const responseMessage = document.getElementById("responseMessage");
+
+        contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch("/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.text();
+
+                responseMessage.style.display = "block";
+                responseMessage.style.backgroundColor = "#1d1d1d";
+                responseMessage.style.border = "1px solid rgba(95, 240, 232, 0.25)";
+                responseMessage.innerText = result;
+
+                contactForm.reset();
+            } catch (error) {
+                responseMessage.style.display = "block";
+                responseMessage.style.backgroundColor = "#1d1d1d";
+                responseMessage.style.border = "1px solid rgba(255, 80, 80, 0.4)";
+                responseMessage.style.color = "#ff8080";
+                responseMessage.innerText = "Error sending message. Please try again.";
+            }
+        });
+    </script>
+
+</body>
+</html>
